@@ -70,6 +70,13 @@ images Styles
 Theme Styles
 *******************************************************************************/
 
+
+
+
+.subTitle{
+  font-style: italic;
+}
+
 body {
   box-sizing: border-box;
   color:#373737;
@@ -116,7 +123,9 @@ h5 {
 }
 
 h6 {
-  font-size: 16px;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: normal;
 }
 
 p {
