@@ -1,0 +1,88 @@
+<!doctype html>
+
+<html lang="en" ng-app="WPMApp">
+<head>
+  <meta charset="utf-8">
+  <title>WPM and Error calculator</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Angular Js-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+
+<body class ="main">
+  <div class ="container">
+    <div class = "row row-content">
+      <div class="col-xs">
+        <h3> Please fill in the form to start the test</h3>
+        <form class="form-horizontal" name="geo-form" ng-controller="FormController">
+
+          <!-- Age -->
+          <div class="form-group">
+            <label for="age" class="col-sm-2 control-label">Age</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="age" name="age" placeholder="Enter Age " ng-model="details.age">
+            </div>
+          </div>
+
+          <!-- Number of Hours -->
+          <div class="form-group">
+            <label for="hours" class="col-sm-2 control-label">Hours spent in computer per day</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="hours" name="hours" placeholder="Enter Hours " ng-model="details.hours">
+            </div>
+          </div>
+
+          <!--SmartPhone -->
+          <div class="form-group">
+            <label for="phone" class="col-sm-2 control-label">Do you own a Smart phone?</label>
+            <div class="col-sm-7">
+              <label class="radio-inline"><input type="radio" name="phone" ng-model="details.phone" value="Yes">Yes</label>
+              <label class="radio-inline"><input type="radio" name="phone" ng-model="details.phone" value="No">No</label>
+            </div>
+          </div>
+
+          <!-- Number of Text -->
+          <div class="form-group">
+            <label for="hours" class="col-sm-2 control-label">Average Text sent per day</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="hours" name="hours" placeholder="Enter Text " ng-model="details.avgText">
+            </div>
+          </div>
+
+
+          <!-- submit -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-7">
+              <button type="submit" class="btn btn-primary">Start</button>
+            </div>
+          </div>
+          <p>
+            <!--
+            <h4> ~~ Test ~~</h4>
+            {{details.age}}
+            {{details.hours}}
+            {{details.phone}}
+            {{details.avgText}} -->
+          </p>
+        </form>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+ <!-- My own Scripts-->
+  <script src="js/main.js"></script>
+</body>
+</html>
