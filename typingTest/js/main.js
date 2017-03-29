@@ -7,9 +7,11 @@ angular.module('WPMApp', [])
   $scope.details = { age: "",hours :"",phone:"",avgText :""};
 
   var temp = $scope.details.age.split(" ");
+  /*
   console.log (temp.toString());
   console.log ($scope.details);
   console.log ($scope.details.age);
+  */
   $scope.words = temp[0];
 }])
 
@@ -19,7 +21,7 @@ angular.module('WPMApp', [])
 
   $scope.index = 0;
   $scope.right = 0;
-  $scope.wrong = 0;
+  $scope.backspaceUsed = 0;
   $scope.count = 0;
   $scope.word1 = words[0];
   $scope.word2 = words[1];
@@ -32,27 +34,51 @@ angular.module('WPMApp', [])
   $scope.word9 = words[8];
   $scope.typed = '';
   $scope.class1="bold";
+  $scope.results = "";
+  $scope.timeStart = 0;
+  var WPM = 0;
+  var curTime = 0;
+  var resultTime = 0;
+  var raw = 54 / 9;
 
 
   $scope.typing = function(){
+    if($scope.timeStart == 0){
+      $scope.timeStart =  (new Date()).getTime();
+    }
     $scope.count++;
+    if($scope.index == 9){
+      curTime  =  (new Date()).getTime();
 
-    console.log($scope.typed.localeCompare(words[$scope.index]));
-    if($scope.typed.includes(" ") || $scope.typed.localeCompare(words[$scope.index]) == 0){
+      resultTime = (curTime - $scope.timeStart)  / 1000;
+      $scope.timeStart = 0;
+      curTime = 0;
+      WPM = raw / (resultTime);
+      $scope.results = "WPM :" + WPM  + "....... Accuracy: " + (100 - (($scope.backspaceUsed/$scope.count) * 100));
+      $scope.index++;
+    }else{
+
+      if($scope.typed.localeCompare(words[$scope.index]) == 0){
+        /*
         console.log($scope.typed.localeCompare(words[$scope.index]));
         console.log($scope.typed);
         console.log(words[$scope.index]);
-      if($scope.typed.localeCompare(words[$scope.index]) == 0) {
-        $scope.right++;
-      }else{
-        $scope.wrong++;
+        */
+        $scope.index++;
+        $scope.typed = "";
+        indexBolder($scope.index);
       }
-      $scope.index++;
-      $scope.typed = "";
-      indexBolder($scope.index);
     }
 
   };
+
+  $scope.onKeyUp = function ($event){
+    if(event.keyCode == '8'){
+      if($scope.count != 0){
+        $scope.backspaceUsed++;
+      }
+    }
+  }
 
   function indexBolder(index){
     index == 0 ? $scope.class1 = "bold" :$scope.class1 = "";

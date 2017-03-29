@@ -41,17 +41,16 @@
           <span id="0" ng-class="class9"> {{word9}} </span>
 
 
-           <p> Index:   {{index}} </p>
-           <p>  Right : {{right}} </p>
-            <p> Wrong :  {{wrong}} </p>
+            <p> Index:   {{index}} </p>
+            <p> Backspace Used :  {{backspaceUsed}} </p>
             <p> Count:   {{count}} </p>
-            </p>
+           <p>{{results}}  </p>
           </div>
 
         </div>
 
         <div >
-          <input type="text" class="form-control" placeholder="Type here" id="age" name="age" ng-model="typed" ng-change="typing()" >
+          <input type="text" class="form-control" placeholder="Type here" id="age" name="age" ng-model="typed" ng-change="typing()" ng-keyup="onKeyUp()" >
         </div>
       </div>
 
